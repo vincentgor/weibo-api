@@ -38,7 +38,6 @@ oauth2Router.get('/access_token', function *(next){
     let result = yield access_token(code, {});
     let ret_data = result.body;
     this.body = {
-        result: result,
         token: config.jwt.token_prefix + jwt.sign(ret_data, config.jwt.secret)
     }
 });
