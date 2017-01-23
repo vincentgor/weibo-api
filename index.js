@@ -9,6 +9,7 @@ const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
 const JWT = require('koa-jwt');
 const jwt = require('jsonwebtoken');
+const config = require('config');
 
 const access_token = require('./lib/oauth2/access_token');
 const authorize = require('./lib/oauth2/authorize');
@@ -40,7 +41,7 @@ oauth2Router.get('/access_token', function *(next){
     };
     this.body = {
         result: result,
-        token: 'Bearer ' + jwt.sign(ret_data, 'jerry-koala')
+        token: config.jwt.token_prefix + jwt.sign(ret_data, config.jwt.secret)
     }
 });
 
@@ -48,7 +49,7 @@ oauth2Router.get('/access_token', function *(next){
  * jwt验证
  */
 app.use(JWT({
-    secret: 'jerry-koala'
+    secret: config.jwt.secret
 }));
 
 app.use(router.routes());
