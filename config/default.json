@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "client_id": "3056656716",
+    "client_secret": "ff539b28beee4834743e928aef3df31a",
+    "grant_type": "authorization_code",
+    "redirect_uri": "http://weibo.vinxent.com/access_token",
+    "access_token_uri": "https://api.weibo.com/oauth2/access_token",
+    "authorize": "https://api.weibo.com/oauth2/authorize"
+  },
+
+  "url": {
+    "comments": "https://api.weibo.com/2/comments",
+    "statuses": "https://api.weibo.com/2/statuses"
+  },
+
+  "jwt": {
+    "secret": "jerry-koala",
+    "token_prefix": "Bearer "
+  }
+
+}
