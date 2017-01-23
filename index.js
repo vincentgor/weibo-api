@@ -19,6 +19,11 @@ const access_token = require('./lib/oauth2/access_token');
 const authorize = require('./lib/oauth2/authorize');
 
 /**
+ * 分发路由
+ */
+require('./router')(router);
+
+/**
  * 根据 code 获取 access_token
  */
 router.get('/access_token', function *(next){
@@ -34,5 +39,5 @@ router.get('/authorize', function *(next){
 });
 
 app.listen(3007, () => {
-    console.log(666);
+    console.log('微博服务已经启动，正在监听3007端口');
 });

@@ -26,6 +26,7 @@
     "koa": "^1.2.4",
     "koa-bodyparser": "^2.3.0",
     "koa-router": "^5.4.0",
+    "lodash": "^4.17.4",
     "request": "^2.79.0"
   }
 }
