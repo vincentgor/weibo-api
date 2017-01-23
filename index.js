@@ -10,15 +10,13 @@ const bodyParser = require('koa-bodyparser');
 const JWT = require('koa-jwt');
 const jwt = require('jsonwebtoken');
 
+const access_token = require('./lib/oauth2/access_token');
+const authorize = require('./lib/oauth2/authorize');
+
 const app = koa();
 const router = Router();
 
 app.use(bodyParser());
-app.use(router.routes());
-app.use(router.allowedMethods());
-
-const access_token = require('./lib/oauth2/access_token');
-const authorize = require('./lib/oauth2/authorize');
 
 /**
  * 引导用户跳转获取code
@@ -48,6 +46,9 @@ router.get('/access_token', function *(next){
 app.use(JWT({
     secret: 'jerry-koala'
 }));
+
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 /**
  * 分发路由(需要jwt验证)
