@@ -40,7 +40,7 @@ oauth2Router.get('/access_token', function *(next){
     };
     this.body = {
         result: result,
-        token: jwt.sign(ret_data, 'jerry-koala')
+        token: 'Bearer ' + jwt.sign(ret_data, 'jerry-koala')
     }
 });
 
